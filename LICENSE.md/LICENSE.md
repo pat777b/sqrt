@@ -1,1 +1,1 @@
-This function is written by Patrick Tam
+This function is written by Patrick Tam.
