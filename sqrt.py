@@ -10,6 +10,18 @@ def sqrt(num1,precision):
     c: str = ''
     rem: int = 0
     numstr: str = str(num1)
+    if (len(numstr)%2 == 1) and (len(numstr) > 2):
+        c = c + numstr[0]
+        k = int(c)
+        p_int = int(p)
+        while (x * (x + 20 * p_int)) > k:
+            x -= 1
+        y = x * (x + (20 * p_int))
+        k -= y
+        c = '0' + str(k)
+        p = p + str(x)
+        x = 9
+        numstr = numstr[1:]
     while len(numstr) > 0:
         if len(numstr) < 2:
             c = c + numstr[0]
