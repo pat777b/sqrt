@@ -2,66 +2,53 @@
 # square root as a string as its output.
 
 
-def sqrt(num1,precision):
+def sqrt(num1, precision):
     i: int = 0
-    p: str = '0'
-    y: int = 0
+    p: int = 0
     x: int = 9
-    c: str = ''
-    rem: int = 0
+    c: int = 0
     numstr: str = str(num1)
-    if (len(numstr)%2 == 1) and (len(numstr) > 2):
-        c = c + numstr[0]
-        k = int(c)
-        p_int = int(p)
-        while (x * (x + 20 * p_int)) > k:
+    if (len(numstr) % 2 == 1) and (len(numstr) > 2):
+        c = 10*c + int(numstr[0])
+        while (x * (x + 20 * p)) > c:
             x -= 1
-        y = x * (x + (20 * p_int))
-        k -= y
-        c = '0' + str(k)
-        p = p + str(x)
+        y = x * (x + (20 * p))
+        c -= y
+        p = 10*p + x
         x = 9
         numstr = numstr[1:]
     while len(numstr) > 0:
         if len(numstr) < 2:
-            c = c + numstr[0]
-            k = int(c)
-            p_int = int(p)
-            while (x * (x + (20 * p_int))) > k:
+            c = 10*c + int(numstr[0])
+            while (x * (x + (20 * p))) > c:
                 x -= 1
-            y = x * (x + (20 * p_int))
-            k -= y
-            c = str(k)
-            p = p + str(x)
+            y = x * (x + (20 * p))
+            c -= y
+            p = 10*p + x
             x = 9
             numstr = numstr[1:]
         else:
-            c = c + numstr[0] + numstr[1]
-            k = int(c)
-            p_int = int(p)
-            while (x * (x + 20 * p_int)) > k:
+            c = 100*c + 10*int(numstr[0]) + int(numstr[1])
+            while (x * (x + 20 * p)) > c:
                 x -= 1
-            y = x * (x + (20 * p_int))
-            k -= y
-            c = str(k)
-            p = p + str(x)
+            y = x * (x + (20 * p))
+            c -= y
+            p = 10*p + x
             x = 9
             numstr = numstr[2:]
-    ans = p[1:] + '.'
+    ans = str(p) + '.'
     while i < precision:
-        c = c + '00'
-        k = int(c)
-        p_int = int(p)
-        while (x * (x + (20 * p_int))) > k:
+        c = 100*c
+        while (x * (x + (20 * p))) > c:
             x -= 1
-        y = x * (x + (20 * p_int))
-        k -= y
-        c = str(k)
-        p = p + str(x)
+        y = x * (x + (20 * p))
+        c -= y
+        p = 10*p + x
         ans = ans + str(x)
         x = 9
         i += 1
     return ans
 
 
-print(sqrt(2,100))
+print(sqrt(2, 1000000))
+
