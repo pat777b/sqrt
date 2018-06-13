@@ -40,5 +40,5 @@ def sqrt(num1, precision):
     return ans
 
 
-print(sqrt(25, 1000))
+print(sqrt(2, 1000))
 
